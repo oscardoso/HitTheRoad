@@ -38,7 +38,7 @@ public class Main extends Application {
         Navigation navigation = Navigation.getInstance();
         navigation.setStage(primaryStage);
         // load the first scene
-        navigation.loadScreen("login");
+        navigation.loadScreen("initView");
 
     }
 
