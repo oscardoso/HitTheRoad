@@ -1,8 +1,7 @@
 package org.academiadecodigo.bootcamp.service.user;
 
 import org.academiadecodigo.bootcamp.model.User;
-import org.academiadecodigo.bootcamp.model.dao.RoleDao;
-import org.academiadecodigo.bootcamp.model.dao.UserDao;
+
 import org.academiadecodigo.bootcamp.persistence.TransactionManager;
 
 

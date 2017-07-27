@@ -1,7 +1,7 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.model.User;
-import org.academiadecodigo.bootcamp.model.dao.hibernate.HibernateUserDao;
+
 import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateTransactionManager;
 import org.academiadecodigo.bootcamp.service.user.UserServiceImpl;
 import org.academiadecodigo.bootcamp.utils.Security;
@@ -14,7 +14,7 @@ public class testDao {
     public static void main(String[] args) {
 
         UserServiceImpl service = new UserServiceImpl();
-        service.setUserDao(new HibernateUserDao());
+       // service.setUserDao(new HibernateUserDao());
         service.setTransactionManager(new HibernateTransactionManager());
 
         service.addUser(new User("ruben", "ruben", "ruben@poi.poi"));
