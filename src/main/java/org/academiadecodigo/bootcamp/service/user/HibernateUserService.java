@@ -81,4 +81,9 @@ public class HibernateUserService implements UserService {
         return list.size();
     }
 
+    @Override
+    public void initializeDB() {
+
+    }
+
 }

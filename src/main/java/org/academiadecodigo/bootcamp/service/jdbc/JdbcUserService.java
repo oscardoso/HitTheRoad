@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.service.jdbc;
 
+import org.academiadecodigo.bootcamp.model.Supplies;
 import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.persistence.jdbc.ConnectionManager;
 import org.academiadecodigo.bootcamp.service.user.UserService;
@@ -143,6 +144,31 @@ public class JdbcUserService implements UserService {
         }
 
         return 0;
+    }
+
+    @Override
+    public void initializeDB() {
+
+        try {
+
+            for (int i = 0; i < SuppliesType.values().length; i++) {
+
+                // create a query
+                String query = "INSERT INTO supplies(name) " +
+                        "VALUES (?)";
+
+                PreparedStatement statement = connection.prepareStatement(query);
+
+                // set values for the placeholders
+                statement.setString(1, SuppliesType.values()[i].getDescription());
+
+                // execute the query
+                statement.executeUpdate();
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Failure to connect to database : " + e.getMessage());
+        }
     }
 
 

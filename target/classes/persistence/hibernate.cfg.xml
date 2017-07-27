@@ -5,7 +5,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="connection.url">jdbc:mysql://localhost:3306/great_Application</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/hit_the_road</property>
     <property name="connection.username">root</property>
 
     <!-- JDBC connection pool (use the built-in) -->

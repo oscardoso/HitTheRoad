@@ -1,5 +1,5 @@
-CREATE DATABASE great_Application;
-USE great_Application;
+CREATE DATABASE hit_the_road;
+USE hit_the_road;
 CREATE TABLE user (
   id INTEGER AUTO_INCREMENT,
   username CHAR(50) UNIQUE,
@@ -7,8 +7,8 @@ CREATE TABLE user (
   email CHAR(50),
   PRIMARY KEY (id)
 );
-CREATE TABLE role (
+CREATE TABLE supplies (
   id INTEGER AUTO_INCREMENT,
-  type CHAR(50) UNIQUE,
+  name CHAR(50) UNIQUE,
   PRIMARY KEY (id)
 );

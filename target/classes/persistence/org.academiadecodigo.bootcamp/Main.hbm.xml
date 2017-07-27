@@ -5,29 +5,28 @@
 
 <hibernate-mapping>
 
-    <class name="org.academiadecodigo.bootcamp.model.User" table="user">
+    <class name="org.academiadecodigo.bootcamp.model.Supplies" table="product">
 
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
-        <property name="username" column="username"/>
-        <property name="password" column="password" />
-        <property name="email" column="email" />
-        <set name="roles" table="roles" cascade="all">
-            <key column="role_id"/>
-            <many-to-many class="org.academiadecodigo.bootcamp.model.User" column="user_id" />
-        </set>
+        <property name="name" column="product_name"/>
+
     </class>
 
-    <class name="org.academiadecodigo.bootcamp.model.Role" table="role">
+    <class name="org.academiadecodigo.bootcamp.model.User" table="category">
+
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
-        <property name="type" column="type"/>
-        <set name="users" table="users" inverse="true">
-            <key column="user_id" />
-            <many-to-many column="role_id" class="org.academiadecodigo.bootcamp.model.Role"/>
+        <property name="username" column="name"/>
+        <property name="password" column="password" />
+        <property name="email" column="email" />
+        <set name="suppliesList" cascade="all">
+            <key column="category_id" not-null="true" />
+            <one-to-many class="org.academiadecodigo.bootcamp.model.Supplies"/>
         </set>
+
     </class>
 
 </hibernate-mapping>
