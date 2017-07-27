@@ -15,4 +15,6 @@ public interface UserService extends Service {
     User findByName(String userName);
 
     int count();
+
+    void initializeDB();
 }

@@ -59,6 +59,11 @@ public class MockUserService implements UserService {
     }
 
     @Override
+    public void initializeDB() {
+
+    }
+
+    @Override
     public String getServiceName() {
         return UserService.class.getSimpleName();
     }

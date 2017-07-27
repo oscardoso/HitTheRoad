@@ -34,7 +34,7 @@ public class SuppliesDisplay implements Controller{
     @FXML
     void buttonSaveSuppliesPressed(ActionEvent event) {
 
-        FileManager.save(, SuppliesDisplayText.getText());
+        //FileManager.save(, SuppliesDisplayText.getText());
     }
 
     @Override
