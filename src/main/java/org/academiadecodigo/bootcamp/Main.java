@@ -3,10 +3,8 @@ package org.academiadecodigo.bootcamp;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.controller.Navigation;
-<<<<<<< HEAD
 import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateTransactionManager;
-=======
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
+
 import org.academiadecodigo.bootcamp.persistence.jdbc.ConnectionManager;
 import org.academiadecodigo.bootcamp.service.jdbc.JdbcUserService;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;
@@ -30,15 +28,12 @@ public class Main extends Application {
         //UserService hservice = new HibernateUserService();
         /*UserServiceImpl service = new UserServiceImpl();
         service.setTransactionManager(new HibernateTransactionManager());
-<<<<<<< HEAD
       //  service.setUserDao(new HibernateUserDao());
        // service.setRoleDao(new HibernateRoleDao());
         ServiceRegistry.getInstance().registerService(service);
-=======
         service.setUserDao(new HibernateUserDao());
         service.setRoleDao(new JdbcUserService());*/
         ServiceRegistry.getInstance().registerService(jservice);
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
 
     }
 

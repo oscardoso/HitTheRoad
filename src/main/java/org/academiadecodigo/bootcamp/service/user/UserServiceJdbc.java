@@ -4,6 +4,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 import org.academiadecodigo.bootcamp.model.User;
+import org.academiadecodigo.bootcamp.service.jdbc.SuppliesType;
 import org.academiadecodigo.bootcamp.utils.Security;
 
 import java.sql.ResultSet;
@@ -110,5 +111,35 @@ public class UserServiceJdbc implements UserService {
     @Override
     public int count () {
         return 0;
+    }
+
+    public void closeConnection(){
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Failure to close database connections: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void initializeDB() {
+        try {
+
+            for (int i = 0; i < SuppliesType.values().length; i++) {
+
+                String query = "INSERT INTO supplies(name) " +
+                        "VALUES (?)";
+
+                java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+                statement.setString(1, SuppliesType.values()[i].getDescription());
+
+                statement.executeUpdate();
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Failure to connect to database : " + e.getMessage());
+        }
+
     }
 }

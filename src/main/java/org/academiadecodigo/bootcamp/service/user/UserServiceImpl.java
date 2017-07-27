@@ -74,6 +74,11 @@ public class UserServiceImpl implements UserService {
         return count;
     }
 
+    @Override
+    public void initializeDB() {
+
+    }
+
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
