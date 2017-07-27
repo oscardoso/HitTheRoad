@@ -33,9 +33,7 @@ public class LogInController implements Controller{
 
     @FXML
     void onClick(ActionEvent event) {
-        if (usernameField == null){
 
-        }
 
 
     }
