@@ -12,7 +12,7 @@ public class User {
     private String password;
     private String email;
     private String username;
-    private Set<Role> roles;
+    private Set<Supplies> suppliesList;
 
     public User() {
     }
@@ -23,12 +23,11 @@ public class User {
         this.username = username;
     }
 
-    public User(Integer id, String username, String password, String email, Set roles) {
+    public User(Integer id, String username, String password, String email) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.roles = roles;
     }
 
     public Integer getId() {
@@ -63,11 +62,11 @@ public class User {
         this.username = username;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<Supplies> getSuppliesList() {
+        return suppliesList;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setSuppliesList(Set<Supplies> suppliesList) {
+        this.suppliesList = suppliesList;
     }
 }
