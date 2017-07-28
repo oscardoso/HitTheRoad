@@ -20,20 +20,17 @@ public class InitController implements Controller{
     @FXML
     private Button signUpBtn;
 
-    @FXML
-    void onLoginClick(ActionEvent event) {
-        Navigation.getInstance().loadScreen(LOGIN_VIEW);
-    }
-
-    @FXML
-    void onSignUpClick(ActionEvent event) {
-        Navigation.getInstance().loadScreen(REGISTER_VIEW);
-    }
-
-
     @Override
     public void setUserService(UserService userService) {
 
 
+    }
+
+    public void onClickLogin(ActionEvent actionEvent) {
+        Navigation.getInstance().loadScreen(LOGIN_VIEW);
+    }
+
+    public void onClickSignup(ActionEvent actionEvent) {
+        Navigation.getInstance().loadScreen(REGISTER_VIEW);
     }
 }

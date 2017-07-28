@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -8,12 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LogInController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="@../../../../../../../Desktop/assets/login.jpg" />
+            <Image url="/images/login.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="nameField" layoutX="275.0" layoutY="247.0" prefHeight="41.0" prefWidth="250.0">
@@ -27,5 +27,20 @@
             <Font name="Helvetica Bold" size="24.0" />
          </font>
       </Button>
+      <Label fx:id="userNotFoundWarning" layoutX="304.0" layoutY="470.0" text=" Error: User Not Found" textFill="RED" visible="false">
+         <font>
+            <Font name="Helvetica" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="nullFieldsWarning" contentDisplay="CENTER" layoutX="282.0" layoutY="470.0" text=" Error: Fields can't be empty" textFill="RED" visible="false">
+         <font>
+            <Font name="Helvetica" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="credentialsDontMatch" contentDisplay="CENTER" layoutX="213.0" layoutY="470.0" text=" Error: Username and Password don't match" textFill="RED" visible="false">
+         <font>
+            <Font name="Helvetica" size="19.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

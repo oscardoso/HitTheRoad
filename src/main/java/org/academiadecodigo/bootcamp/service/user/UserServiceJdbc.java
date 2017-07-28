@@ -36,7 +36,6 @@ public class UserServiceJdbc implements UserService {
             return false;
         }
         return true;
-
     }
 
     @Override
@@ -126,7 +125,8 @@ public class UserServiceJdbc implements UserService {
 
         try {
             statement = (Statement) connection.createStatement();
-            String update = "DROP USER '"+ findByName(username).getUsername()+"'@'root';";
+            String update = "DELETE FROM user where username = '"+ username + "';";
+            System.out.println(update);
             statement.executeUpdate(update);
 
         } catch (SQLException e) {

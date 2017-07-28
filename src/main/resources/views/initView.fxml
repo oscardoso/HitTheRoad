@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="@../../../../../../../Desktop/assets/intro.jpg" />
+            <Image url="/images/intro.jpg" />
          </image>
       </ImageView>
       <Button fx:id="loginButton" layoutX="325.0" layoutY="274.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff0000;" text="login" textAlignment="CENTER" textFill="WHITE">
