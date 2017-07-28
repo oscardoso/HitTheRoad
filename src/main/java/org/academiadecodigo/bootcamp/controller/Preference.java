@@ -26,7 +26,7 @@ public class Preference {
     public void initialize() {
         userService = (UserService) ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
 
-        String[] prefs = userService.findPreferences(UserServiceJdbc.getCurrentUserName());
+        String[] prefs = userService.findPreferences(userService.getCurrentUserName());
         String displayPref = "";
 
         for(int i = 0; i < prefs.length; i++) {

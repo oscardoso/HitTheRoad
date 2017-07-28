@@ -79,6 +79,11 @@ public class MockUserService implements UserService {
     }
 
     @Override
+    public String getCurrentUserName() {
+        return null;
+    }
+
+    @Override
     public String getServiceName() {
         return UserService.class.getSimpleName();
     }

@@ -23,4 +23,6 @@ public interface UserService extends Service {
     String[] findPreferences(String name);
 
     void addPreference(User user, String pref);
+
+    String getCurrentUserName();
 }

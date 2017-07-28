@@ -14,7 +14,7 @@ import java.sql.*;
 public class UserServiceJdbc implements UserService {
 
     private Connection connection;
-    private static String currentUserName;
+    private String currentUserName;
 
     public UserServiceJdbc(Connection connection) {
         this.connection = connection;
@@ -36,6 +36,9 @@ public class UserServiceJdbc implements UserService {
             System.out.println(Security.getHash( Security.getHash(pass)));
             return false;
         }
+
+        currentUserName = userName;
+
         return true;
     }
 
@@ -76,11 +79,12 @@ public class UserServiceJdbc implements UserService {
                 String usernameValue = resultSet.getString("username");
                 String passwordValue = resultSet.getString("password");
                 String emailValue = resultSet.getString("email");
+                Integer id = resultSet.getInt("id");
 
 
                 statement.close();
 
-                return new User(usernameValue, passwordValue, emailValue);
+                return new User(id, usernameValue, passwordValue, emailValue);
             }
 
         } catch (SQLException e) {
@@ -219,6 +223,7 @@ public class UserServiceJdbc implements UserService {
 
         try {
 
+            System.out.println(user);
             String query = "INSERT INTO preferences(userID, name) " +
                     "VALUES (?, ?)";
 
@@ -235,7 +240,8 @@ public class UserServiceJdbc implements UserService {
 
     }
 
-    public static String getCurrentUserName() {
+    @Override
+    public String getCurrentUserName() {
         return currentUserName;
     }
 }
