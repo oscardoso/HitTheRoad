@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.model;
 
+import org.academiadecodigo.bootcamp.persistence.SuppliesCalculator;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,7 +36,11 @@ public class TravelDistance {
 
             km = Math.ceil(km / 30);
 
-            System.out.println(km);
+            int numOfDays = km.intValue();
+
+            SuppliesCalculator.setNumberOfDays(numOfDays);
+
+            System.out.println("numero de dias: " + numOfDays);
 
         } catch (IOException err) {
             System.out.println(err);
