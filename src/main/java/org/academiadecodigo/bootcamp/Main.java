@@ -25,14 +25,7 @@ public class Main extends Application {
         connectionManager = new ConnectionManager();
         UserService jservice = new UserServiceJdbc(connectionManager.getConnection());
         jservice.initializeDB();
-        //UserService hservice = new HibernateUserService();
-        /*UserServiceImpl service = new UserServiceImpl();
-        service.setTransactionManager(new HibernateTransactionManager());
-      //  service.setUserDao(new HibernateUserDao());
-       // service.setRoleDao(new HibernateRoleDao());
-        ServiceRegistry.getInstance().registerService(service);
-        service.setUserDao(new HibernateUserDao());
-        service.setRoleDao(new JdbcUserService());*/
+
         ServiceRegistry.getInstance().registerService(jservice);
 
     }

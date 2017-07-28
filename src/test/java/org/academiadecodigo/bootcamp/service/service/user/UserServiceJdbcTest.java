@@ -13,14 +13,14 @@ import org.junit.Before;
  */
 public class UserServiceJdbcTest {
 
-    private static String username = "MockUser";
+    private static String username = "MockUser7";
     private static String email = "mockuser@email.com";
     private static String password = "mockpassword";
 
     public static void main(String[] args) {
 
         ConnectionManager connectionManager = new ConnectionManager();
-        UserService userService = new UserServiceJdbc((Connection) connectionManager.getConnection());
+        UserService userService = new UserServiceJdbc(connectionManager.getConnection());
 
 
         System.out.println("TESTING GET SERVICE NAME");

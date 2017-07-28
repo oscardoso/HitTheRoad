@@ -16,11 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<<<<<<< HEAD
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LogInController">
-=======
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.loginController">
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
    <children>
       <GridPane layoutX="300.0" layoutY="255.0" prefHeight="90.0" prefWidth="200.0">
         <columnConstraints>
@@ -49,11 +45,7 @@
       </GridPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="354.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
-<<<<<<< HEAD
             <Image url="/logo.png" />
-=======
-            <Image url="@../../../Desktop/download.jpg" />
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
          </image>
       </ImageView>
       <Button mnemonicParsing="false" text="LogIn" translateX="400.0" translateY="350.0" />

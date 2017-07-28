@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class ConnectionManager {
 
-    private final String dbUrl = "jdbc:mysql://localhost:3306/great_application";
+    private final String dbUrl = "jdbc:mysql://localhost:3306/hit_the_road";
     private final String user = "root";
     private final String pass = "";
     private Connection connection = null;

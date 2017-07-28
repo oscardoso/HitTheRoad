@@ -1,6 +1,13 @@
 package org.academiadecodigo.bootcamp.service.user;
 
+<<<<<<< HEAD
 import com.mysql.jdbc.Connection;
+=======
+import java.sql.Connection;
+
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
+>>>>>>> 1f5cd8dbe162226ac2959db17f82441375b09d75
 import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.service.jdbc.SuppliesType;
 
@@ -59,8 +66,13 @@ public class UserServiceJdbc implements UserService {
         Statement statement = null;
 
         try {
+<<<<<<< HEAD
             statement = connection.createStatement();
             String update = "INSERT INTO users (username, password, email) " +
+=======
+            statement = (Statement) connection.createStatement();
+            String update = "INSERT INTO user (username, password, email) " +
+>>>>>>> 1f5cd8dbe162226ac2959db17f82441375b09d75
                     "VALUES('" + user.getUsername() + "','" + user.getPassword() + "','" + user.getEmail() + "');";
             statement.executeUpdate(update);
 
@@ -96,7 +108,7 @@ public class UserServiceJdbc implements UserService {
                 return user;
             }
 
-            if(statement != null) {
+            if (statement != null) {
                 statement.close();
             }
 
@@ -108,11 +120,37 @@ public class UserServiceJdbc implements UserService {
     }
 
     @Override
-    public int count () {
+    public int count() {
+
+        try {
+
+            int result = 0;
+
+            // create a new statement
+            java.sql.Statement statement = connection.createStatement();
+
+            // create a query
+            String query = "SELECT COUNT(*) FROM user;";
+
+            // execute the query
+            ResultSet resultSet = statement.executeQuery(query);
+
+            // get the results
+            if (resultSet.next()) {
+                result = resultSet.getInt(1);
+            }
+
+            return result;
+
+        } catch (SQLException e) {
+            System.out.println("Failure to close database connections: " + e.getMessage());
+        }
+
         return 0;
     }
 
-    public void closeConnection(){
+
+    public void closeConnection() {
         try {
             connection.close();
         } catch (SQLException e) {
@@ -124,16 +162,29 @@ public class UserServiceJdbc implements UserService {
     public void initializeDB() {
         try {
 
-            for (int i = 0; i < SuppliesType.values().length; i++) {
+            int result = 0;
+            java.sql.Statement statement1 = connection.createStatement();
+            String query1 = "SELECT COUNT(*) FROM supplies;";
+            ResultSet resultSet = statement1.executeQuery(query1);
 
-                String query = "INSERT INTO supplies(name) " +
-                        "VALUES (?)";
+            // get the results
+            if (resultSet.next()) {
+                result = resultSet.getInt(1);
+            }
 
-                java.sql.PreparedStatement statement = connection.prepareStatement(query);
+            if (result == 0) {
 
-                statement.setString(1, SuppliesType.values()[i].getDescription());
+                for (int i = 0; i < SuppliesType.values().length; i++) {
 
-                statement.executeUpdate();
+                    String query = "INSERT INTO supplies(name) " +
+                            "VALUES (?)";
+
+                    java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+                    statement.setString(1, SuppliesType.values()[i].getDescription());
+
+                    statement.executeUpdate();
+                }
 
             }
         } catch (SQLException e) {
