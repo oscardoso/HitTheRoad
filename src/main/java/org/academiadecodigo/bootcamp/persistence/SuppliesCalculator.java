@@ -10,8 +10,8 @@ public class SuppliesCalculator {
     private static String displayText;
     private static int numberOfDays;
 
-    public static void addSupplies(String supplies) {
-        displayText += supplies;
+    public static void addToDisplayText(String text) {
+        displayText += text;
     }
 
     public static void resetDisplayText() {
@@ -29,10 +29,33 @@ public class SuppliesCalculator {
 
     private static void calculateSupplies() {
 
-        if(numberOfDays < 2) {
-            displayText = "2 " + SuppliesType.values()[0] + "\n 2 " + SuppliesType.values()[1] +
-                    "\n 2 " + SuppliesType.values()[2] + "\n (opcional) 2 " + SuppliesType.values()[3] +
-                    "1 rolo " + SuppliesType.values()[10];
+        if(numberOfDays >= 5) {
+
+            displayText = String.valueOf(numberOfDays * 2) + " " + SuppliesType.values()[0].getDescription() + "\n" + String.valueOf(numberOfDays * 2) +
+                    " " + SuppliesType.values()[1].getDescription() + "\n" + String.valueOf(numberOfDays * 2) + " " + SuppliesType.values()[2].getDescription() +
+            "\n (opc) " + String.valueOf(numberOfDays * 2) + " " + SuppliesType.values()[3].getDescription() + "\n" +
+            String.valueOf(numberOfDays / 2) + " " + SuppliesType.values()[4].getDescription() + "\n" + String.valueOf(numberOfDays / 2) + " " +
+            SuppliesType.values()[5].getDescription() + "\n" + SuppliesType.DUMDUM.getDescription() + "\n" + SuppliesType.CANIVETEBEARGRYLLS.getDescription() +
+            "\n" + SuppliesType.TOALHETES.getDescription() + "\n" + SuppliesType.DESODORIZANTE.getDescription() + "\n" + String.valueOf(numberOfDays / 2) + " " +
+            SuppliesType.PAPELHIGIENICO.getDescription() + "\n" + SuppliesType.PRESERVATIVOS.getDescription() + "\n" + SuppliesType.SACOCAMA.getDescription() +
+            "\nRepor stock ao fim " + "\ndo quinto dia.";
+        }
+        else if (numberOfDays >= 2) {
+
+            displayText = String.valueOf(numberOfDays * 2) + " " + SuppliesType.values()[0].getDescription() + "\n" + String.valueOf(numberOfDays * 2) +
+                    " " + SuppliesType.values()[1].getDescription() + "\n" + String.valueOf(numberOfDays * 2) + " " + SuppliesType.values()[2].getDescription() +
+                    "\n (opcional) " + String.valueOf(numberOfDays * 2) + " " + SuppliesType.values()[3].getDescription() + "\n" +
+                    String.valueOf(numberOfDays / 2) + " " + SuppliesType.values()[4].getDescription() + "\n" + String.valueOf(numberOfDays / 2) + " " +
+                    SuppliesType.values()[5].getDescription() + "\n" + SuppliesType.DUMDUM.getDescription() + "\n" + SuppliesType.CANIVETEBEARGRYLLS.getDescription() +
+                    " " + SuppliesType.TOALHETES.getDescription() + "\n" + SuppliesType.DESODORIZANTE.getDescription() + "\n" + String.valueOf(numberOfDays / 2) + " " +
+                    SuppliesType.PAPELHIGIENICO.getDescription() + "\n" + SuppliesType.PRESERVATIVOS.getDescription() + "\n" + SuppliesType.SACOCAMA.getDescription();
+
+            return;
+        }
+        else {
+            displayText = "2 " + SuppliesType.values()[0].getDescription() + "\n2 " + SuppliesType.values()[1].getDescription() +
+                    "\n2 " + SuppliesType.values()[2].getDescription() + "\n(opcional) 2 " + SuppliesType.values()[3].getDescription() +
+                    "\n1 rolo " + SuppliesType.values()[10].getDescription();
         }
 
     }
