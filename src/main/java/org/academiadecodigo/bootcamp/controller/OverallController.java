@@ -11,6 +11,8 @@ import org.academiadecodigo.bootcamp.persistence.SuppliesCalculator;
 import org.academiadecodigo.bootcamp.service.user.UserService;
 import org.academiadecodigo.bootcamp.service.user.UserServiceJdbc;
 
+import javax.naming.NameAlreadyBoundException;
+
 public class OverallController implements Controller {
 
     @FXML
@@ -24,6 +26,9 @@ public class OverallController implements Controller {
 
     @FXML
     private Label suppliesField2;
+
+    @FXML
+    private Button backButton;
 
     @FXML
     void onClickSave(ActionEvent event) {
@@ -61,6 +66,15 @@ public class OverallController implements Controller {
 
         suppliesField1.setText(left);
         suppliesField2.setText(right);
+
+    }
+
+    @FXML
+    void onClickBack(ActionEvent event) {
+
+        TravelDistance.setDestinoFinal(null);
+        TravelDistance.setOrigemFinal(null);
+        Navigation.getInstance().back();
 
     }
 

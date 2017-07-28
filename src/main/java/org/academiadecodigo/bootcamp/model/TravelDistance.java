@@ -16,7 +16,7 @@ public class TravelDistance {
     private static int numberOfDays;
     private static int kilometres;
 
-    public static void distance (String origem, String destino) {
+    public static void distance(String origem, String destino) {
 
         try {
 
@@ -32,8 +32,6 @@ public class TravelDistance {
             while ((line = reader.readLine()) != null) {
                 outputString += line;
             }
-
-            System.out.println(outputString);
 
             String[] result = outputString.split("\"text\" : \"");
 
@@ -55,14 +53,8 @@ public class TravelDistance {
             SuppliesCalculator.setNumberOfDays(numberOfDays);
 
         } catch (IOException err) {
-            System.out.println(err);
+        } catch (ArrayIndexOutOfBoundsException err) {
         }
-        catch (ArrayIndexOutOfBoundsException err) {
-            System.out.println("...");
-        }
-
-
-        System.out.println("___________________________________");
 
     }
 
@@ -87,4 +79,11 @@ public class TravelDistance {
         return kilometres;
     }
 
+    public static void setOrigemFinal(String origemFinal) {
+        TravelDistance.origemFinal = origemFinal;
+    }
+
+    public static void setDestinoFinal(String destinoFinal) {
+        TravelDistance.destinoFinal = destinoFinal;
+    }
 }

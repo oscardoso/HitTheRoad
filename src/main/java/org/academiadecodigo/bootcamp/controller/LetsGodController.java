@@ -51,6 +51,9 @@ public class LetsGodController implements Controller{
             destino = destinyField.getText();
         }
 
+        origem = origem.toLowerCase();
+        destino = destino.toLowerCase();
+
         TravelDistance.distance(origem, destino);
 
         if(TravelDistance.getOrigemFinal() == null || TravelDistance.getDestinoFinal() == null) {
@@ -78,5 +81,6 @@ public class LetsGodController implements Controller{
 
     public void initialize() {
         userService = (UserService) ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
+        routeNotFoundWarning.setVisible(false);
     }
 }

@@ -1,0 +1,81 @@
+#loginButton {
+
+    -fx-background-color: #ff0000;
+}
+
+#loginButton:hover {
+
+    -fx-background-color: #323232;
+}
+
+#signupButton  {
+
+    -fx-background-color: #00adee;
+}
+
+#signupButton:hover {
+
+    -fx-background-color: #323232;
+}
+
+#signupButton {
+
+    -fx-background-color: #00adee;
+}
+
+#signupButton {
+
+    -fx-background-color: #323232;
+}
+
+
+#letsGoBtn  {
+
+    -fx-background-color: #ff0000;
+}
+
+#letsGoBtn:hover {
+
+    -fx-background-color: #323232;
+}
+
+
+#loginButton  {
+
+    -fx-background-color: #ff0000;
+}
+
+#loginButton:hover {
+
+    -fx-background-color: #323232;
+}
+
+#backButton {
+
+    -fx-background-color: #00adee;
+}
+
+#backButton:hover {
+
+    -fx-background-color: #323232;
+}
+
+#saveButton {
+
+    -fx-background-color: #00adee;
+}
+
+#saveButton:hover {
+
+    -fx-background-color: #323232;
+}
+
+#signupButton {
+
+    -fx-background-color: #00adee;
+}
+
+#signupButton:hover {
+
+    -fx-background-color: #323232;
+}

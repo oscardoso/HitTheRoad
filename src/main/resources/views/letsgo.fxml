@@ -26,7 +26,7 @@
             <Font name="Helvetica Bold" size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="signupButton" layoutX="300.0" layoutY="515.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00adee;" text="my choices" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="signupButton" layoutX="300.0" layoutY="515.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="200.0" stylesheets="@../styles.css" text="my choices" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>
@@ -34,7 +34,7 @@
             <Insets left="40.0" />
          </padding>
       </Button>
-      <Button fx:id="letsGoBtn" layoutX="325.0" layoutY="313.0" mnemonicParsing="false" onAction="#lestGoClick" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff0000;" text="let's go" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="letsGoBtn" layoutX="325.0" layoutY="313.0" mnemonicParsing="false" onAction="#lestGoClick" prefHeight="50.0" prefWidth="150.0" stylesheets="@../styles.css" text="let's go" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>

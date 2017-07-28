@@ -27,7 +27,7 @@
             <Font name="Helvetica Bold" size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="signupButton" layoutX="325.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00adee;" text="signup" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="signupButton" layoutX="325.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="150.0" stylesheets="@../styles.css"  text="signup" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>

@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="/images/overall.jpg" />
+            <Image url="/images/overall2.jpg" />
          </image>
       </ImageView>
       <Label fx:id="overall" layoutX="75.0" layoutY="223.0" prefHeight="16.0" prefWidth="650.0" text="origin: lisboa | destination: faro | distance: 300 km | walking days: 10">
@@ -20,7 +20,12 @@
             <Font name="Helvetica" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="saveButton" layoutX="325.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClickSave" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00adee;" text="save" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="backButton" layoutX="155.0" layoutY="472.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="50.0" prefWidth="150.0" stylesheets="@../styles.css"  text="back" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Helvetica Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveButton" layoutX="494.0" layoutY="472.0" mnemonicParsing="false" onAction="#onClickSave" prefHeight="50.0" prefWidth="150.0" stylesheets="@../styles.css"  text="save" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>
