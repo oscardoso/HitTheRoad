@@ -13,7 +13,7 @@ import org.junit.Before;
  */
 public class UserServiceJdbcTest {
 
-    private static String username = "MockUser7";
+    private static String username = "MockUser3";
     private static String email = "mockuser@email.com";
     private static String password = "mockpassword";
 
@@ -25,7 +25,7 @@ public class UserServiceJdbcTest {
 
         System.out.println("TESTING GET SERVICE NAME");
         System.out.println();
-        System.out.println("Service name should be UserService ------> "+ userService.getServiceName());
+        System.out.println("Service name should be UserService ------> " + userService.getServiceName());
         System.out.println();
 
 
@@ -35,11 +35,20 @@ public class UserServiceJdbcTest {
         System.out.println("TESTING ADD USER");
         System.out.println();
 
-        userService.addUser(new User(username, password, email));
+        //userService.addUser(new User(username, password, email));
 
         System.out.println("TESTING FIND BY NAME");
         System.out.println();
-        System.out.println("Username should be MockUser -----> " + userService.findByName(username));
+        System.out.println("Username should be MockUser -----> " + userService.findByName(username).getUsername());
+
+        System.out.println();
+        System.out.println("TESTING REMOVING USER");
+        System.out.println();
+        System.out.println("Number of users should be 4 ----> " + userService.count());
+        userService.removeUser("MockUser3");
+        userService.removeUser("MockUser2");
+        userService.removeUser("MockUser7");
+        System.out.println("Number of users should be 1 ----> " + userService.count());
 
     }
 }

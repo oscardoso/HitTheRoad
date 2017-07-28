@@ -22,7 +22,7 @@ public class ServiceRegistryTest {
     @Before
     public void setup() {
         serviceRegistry = ServiceRegistry.getInstance();
-        mockedService = Mockito.mock(JdbcUserService.class);
+      //  mockedService = Mockito.mock(JdbcUserService.class);
 
         when(mockedService.getServiceName()).thenReturn(serviceName);
     }

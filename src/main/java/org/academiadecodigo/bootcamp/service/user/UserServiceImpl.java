@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void removeUser(String username) {
+
+    }
+
+    @Override
     public User findByName(String userName) {
 
         transactionManager.beginTransaction();

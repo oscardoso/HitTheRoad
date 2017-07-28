@@ -42,6 +42,11 @@ public class MockUserService implements UserService {
     }
 
     @Override
+    public void removeUser(String username) {
+
+    }
+
+    @Override
     public User findByName(String userName) {
 
         for (User user : userDataBase) {

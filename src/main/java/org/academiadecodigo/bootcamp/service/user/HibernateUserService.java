@@ -59,6 +59,11 @@ public class HibernateUserService implements UserService {
     }
 
     @Override
+    public void removeUser(String username) {
+
+    }
+
+    @Override
     public User findByName(String userName) {
         System.out.println("username: " + userName);
 

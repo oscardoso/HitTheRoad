@@ -1,20 +1,15 @@
 package org.academiadecodigo.bootcamp.service.user;
 
-<<<<<<< HEAD
-import com.mysql.jdbc.Connection;
-=======
-import java.sql.Connection;
 
-import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
->>>>>>> 1f5cd8dbe162226ac2959db17f82441375b09d75
 import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.service.jdbc.SuppliesType;
+import org.academiadecodigo.bootcamp.utils.Security;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Created by codecadet on 27/07/2017.
@@ -35,29 +30,12 @@ public class UserServiceJdbc implements UserService {
 
     @Override
     public boolean authenticate(String userName, String pass) {
-        try {
 
-            String query = "SELECT username, password FROM user WHERE user.username = ? AND user.password = ?";
-
-            PreparedStatement statement = connection.prepareStatement(query);
-
-            statement.setString(1, userName);
-            statement.setString(2, pass);
-
-            System.out.println(userName + " and " + pass);
-
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-
-                return true;
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Failure to connect to database : " + e.getMessage());
+        if (findByName(userName) == null ||
+                Security.getHash(findByName(userName).getPassword()) != Security.getHash(pass)){
+            return false;
         }
-
-        return false;
+        return true;
 
     }
 
@@ -66,14 +44,10 @@ public class UserServiceJdbc implements UserService {
         Statement statement = null;
 
         try {
-<<<<<<< HEAD
-            statement = connection.createStatement();
-            String update = "INSERT INTO users (username, password, email) " +
-=======
+
             statement = (Statement) connection.createStatement();
             String update = "INSERT INTO user (username, password, email) " +
->>>>>>> 1f5cd8dbe162226ac2959db17f82441375b09d75
-                    "VALUES('" + user.getUsername() + "','" + user.getPassword() + "','" + user.getEmail() + "');";
+                    "VALUES('" + user.getUsername() + "','" + Security.getHash(user.getPassword()) + "','" + user.getEmail() + "');";
             statement.executeUpdate(update);
 
         } catch (SQLException e) {
@@ -88,33 +62,31 @@ public class UserServiceJdbc implements UserService {
     public User findByName(String userName) {
 
         try {
-            User user = null;
 
-            String query = "SELECT username FROM user WHERE username = ?";
+            String query = "SELECT * FROM user WHERE username=?";
 
-            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+            PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, userName);
+            System.out.println(query);
 
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-
                 String usernameValue = resultSet.getString("username");
                 String passwordValue = resultSet.getString("password");
                 String emailValue = resultSet.getString("email");
 
-                user = new User(usernameValue, passwordValue, emailValue);
-                return user;
-            }
 
-            if (statement != null) {
                 statement.close();
+
+                return new User(usernameValue, emailValue, passwordValue);
             }
 
         } catch (SQLException e) {
-            System.out.println("Failure to connect to database : " + e.getMessage());
+            System.err.println(e.getMessage());
         }
+
 
         return null;
     }
@@ -149,6 +121,20 @@ public class UserServiceJdbc implements UserService {
         return 0;
     }
 
+    public void removeUser(String username){
+        Statement statement = null;
+
+        try {
+            statement = (Statement) connection.createStatement();
+            String update = "DROP USER '"+ findByName(username).getUsername()+"'@'root';";
+            statement.executeUpdate(update);
+
+        } catch (SQLException e) {
+            System.err.println("ERROR: "+e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
 
     public void closeConnection() {
         try {

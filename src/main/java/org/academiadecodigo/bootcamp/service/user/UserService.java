@@ -12,6 +12,8 @@ public interface UserService extends Service {
 
     void addUser(User user);
 
+    void removeUser(String username);
+
     User findByName(String userName);
 
     int count();
