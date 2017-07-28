@@ -11,6 +11,7 @@ import org.academiadecodigo.bootcamp.service.user.UserService;
 
 import static org.academiadecodigo.bootcamp.utils.Constants.LETSGOVIEW;
 import static org.academiadecodigo.bootcamp.utils.Constants.OVERALLVIEW;
+import static org.academiadecodigo.bootcamp.utils.Constants.PREFERENCE;
 
 /**
  * Created by codecadet on 28/07/2017.
@@ -51,6 +52,7 @@ public class LetsGodController implements Controller{
             destino = destinyField.getText();
         }
 
+        TravelDistance.setOriginDestiny();
         TravelDistance.distance(origem, destino);
 
         if(TravelDistance.getOrigemFinal() == null || TravelDistance.getDestinoFinal() == null) {
@@ -63,6 +65,7 @@ public class LetsGodController implements Controller{
 
     @FXML
     void onClickSignup(ActionEvent event) {
+        Navigation.getInstance().loadScreen(PREFERENCE);
 
     }
 

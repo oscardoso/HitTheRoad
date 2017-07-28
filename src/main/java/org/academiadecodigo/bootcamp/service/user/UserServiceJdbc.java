@@ -28,7 +28,7 @@ public class UserServiceJdbc implements UserService {
     @Override
     public boolean authenticate(String userName, String pass) {
 
-
+        currentUserName = userName;
 
         if (findByName(userName) == null ||
                 !findByName(userName).getPassword().equals(Security.getHash(Security.getHash(pass)))){
@@ -37,7 +37,6 @@ public class UserServiceJdbc implements UserService {
             return false;
         }
 
-        currentUserName = userName;
 
         return true;
     }
@@ -189,7 +188,11 @@ public class UserServiceJdbc implements UserService {
 
         try {
 
+            System.out.println(name);
+
             int id = findByName(name).getId();
+
+            System.out.println("id " + id);
 
             String query = "SELECT name FROM preferences WHERE userID = ?";
 
@@ -198,16 +201,14 @@ public class UserServiceJdbc implements UserService {
             statement.setInt(1, id);
 
             ResultSet resultSet = statement.executeQuery();
+            int count = 0;
+            String[] preferences = new String[10];
 
-            Object[] type;
-            Array prefs = resultSet.getArray("name");
-            type = (Object [])prefs.getArray();
-
-            String[] preferences = new String[type.length];
-
-            for(int i = 0; i < preferences.length; i++) {
-                preferences[i] = type[i].toString();
+            while (resultSet.next()) {
+                preferences[count] = resultSet.getString("name");
+                count++;
             }
+
 
             return preferences;
 

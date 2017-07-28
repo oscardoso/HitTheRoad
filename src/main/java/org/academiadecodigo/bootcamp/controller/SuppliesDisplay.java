@@ -21,6 +21,8 @@ public class SuppliesDisplay implements Controller{
     private Label suppliesRightLabel;
     private UserService userService;
 
+    public static String fileToLoad;
+
     public void initialize() {
         userService = (UserService) ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
     }

@@ -87,4 +87,8 @@ public class TravelDistance {
         return kilometres;
     }
 
+    public static void setOriginDestiny() {
+        originDestiny = "";
+    }
+
 }

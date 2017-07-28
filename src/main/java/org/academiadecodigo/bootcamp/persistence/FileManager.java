@@ -48,7 +48,7 @@ public class FileManager {
         BufferedReader inputBufferedReader;
 
         try {
-            inputBufferedReader = new BufferedReader(new FileReader("resources/" + fileName + ".txt"));
+            inputBufferedReader = new BufferedReader(new FileReader(fileName + ".txt"));
 
             while((line = inputBufferedReader.readLine()) != null) {
                 fileContent += line + "\n";

@@ -1,52 +1,72 @@
 package org.academiadecodigo.bootcamp.controller;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
 import org.academiadecodigo.bootcamp.persistence.FileManager;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
-import org.academiadecodigo.bootcamp.service.user.UserServiceJdbc;
+
+import static org.academiadecodigo.bootcamp.utils.Constants.LETSGOVIEW;
+import static org.academiadecodigo.bootcamp.utils.Constants.OVERALLVIEW;
 
 public class Preference {
 
     @FXML
-    private Button buttonExit;
+    private Label prefLabel;
 
     @FXML
-    private Label preferencesDisplay;
+    private TextField loadtext;
 
     @FXML
-    private TextField preferenceSelector;
+    private Button backButton;
+
+    @FXML
+    private Button loadButton;
     private UserService userService;
+    String[] prefs;
+
+
+    @FXML
+    void onClickBack(ActionEvent event) {
+
+        Navigation.getInstance().loadScreen(LETSGOVIEW);
+    }
+
+    @FXML
+    void onClickLoad(ActionEvent event) {
+
+        if(loadtext.getText() != null) {
+            for(int i = 0; i < prefs.length; i++) {
+                if(loadtext.getText().equals(prefs[i])) {
+                    SuppliesDisplay.fileToLoad = FileManager.load(loadtext.getText());
+                    System.out.println(SuppliesDisplay.fileToLoad);
+                    prefLabel.setText(SuppliesDisplay.fileToLoad);
+                    return;
+                }
+            }
+        }
+
+    }
 
     public void initialize() {
         userService = (UserService) ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
 
-        String[] prefs = userService.findPreferences(userService.getCurrentUserName());
+        prefs = userService.findPreferences(userService.getCurrentUserName());
         String displayPref = "";
 
         for(int i = 0; i < prefs.length; i++) {
+            if(prefs[i] == null) {
+                break;
+            }
+
             displayPref += prefs[i] + "\n";
         }
 
-        preferencesDisplay.setText(displayPref);
+        prefLabel.setText(displayPref);
 
     }
-
-    @FXML
-    void exit(ActionEvent event) {
-
-
-    }
-
-    @FXML
-    void loadFile(ActionEvent event) {
-        preferencesDisplay.setText(FileManager.load(preferenceSelector.getText()));
-    }
-
 }
 
