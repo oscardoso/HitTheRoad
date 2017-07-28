@@ -9,14 +9,16 @@ import javafx.scene.control.TextField;
 import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.service.user.UserService;
 
+import static org.academiadecodigo.bootcamp.utils.Constants.INITVIEW;
+import static org.academiadecodigo.bootcamp.utils.Constants.LETSGOVIEW;
+
 /**
  * Created by codecadet on 27/07/2017.
  */
 public class LogInController implements Controller {
 
     private UserService userService;
-    private final String LETSGO = "letsgo";
-    private final String INTRO = "initView";
+
     private int counter = 0;
 
     @FXML
@@ -87,7 +89,7 @@ public class LogInController implements Controller {
             counter++;
             if (counter == 3) {
                 counter = 0;
-                Navigation.getInstance().loadScreen(INTRO);
+                Navigation.getInstance().loadScreen(INITVIEW);
             }
             return;
         }
@@ -96,6 +98,6 @@ public class LogInController implements Controller {
         userNotFoundWarning.setVisible(false);
         System.out.println("Access Granted");
         counter = 0;
-        Navigation.getInstance().loadScreen(LETSGO);
+        Navigation.getInstance().loadScreen(LETSGOVIEW);
     }
 }

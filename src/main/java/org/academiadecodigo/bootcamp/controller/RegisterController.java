@@ -3,13 +3,28 @@ package org.academiadecodigo.bootcamp.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.service.user.UserService;
+import org.academiadecodigo.bootcamp.utils.Security;
+
+import static org.academiadecodigo.bootcamp.utils.Constants.EMAILREGEX;
 
 /**
  * Created by codecadet on 27/07/2017.
  */
 public class RegisterController implements Controller{
 
+    UserService userService;
+
+
+    @FXML
+    private Label nullFieldsWarning;
+
+    @FXML
+    private Label usernameTakenWarning;
+
+    @FXML
+    private Label invalidEmailWarning;
 
     @FXML
     private PasswordField passwordField;
@@ -40,40 +55,6 @@ public class RegisterController implements Controller{
         Navigation.getInstance().back();
     }
 
-    @FXML
-    void onClick(ActionEvent event) {
-        sysMsg.setVisible(false);
-        if (usernameField ==  null){
-            sysMsg.setText("Username Field can't be empty");
-            sysMsg.setVisible(true);
-            return;
-        }
-        else if (nameField == null){
-            sysMsg.setText("Name Field can't be left empty");
-            sysMsg.setVisible(true);
-            return;
-        }
-        else if( emailField == null){
-            sysMsg.setText("Email Field can't be empty");
-            sysMsg.setVisible(true);
-        }
-        else if (passwordField == null){
-            sysMsg.setText("Password field can't be left empty");
-            sysMsg.setVisible(true);
-            return;
-        }
-        else if (confirmPasswordField != passwordField){
-            sysMsg.setText("Password doesn't match");
-            sysMsg.setVisible(true);
-            return;
-        }
-        else {
-            usernameField.getText();
-            nameField.getText();
-            confirmPasswordField.getText();
-            emailField.getText();
-        }
-    }
 
     @FXML
     void onClose(ActionEvent event) {
@@ -84,5 +65,30 @@ public class RegisterController implements Controller{
     @Override
     public void setUserService(UserService userService) {
 
+    }
+
+    public void onKeyPressed(ActionEvent actionEvent) {
+        onClickSignup(actionEvent);
+    }
+
+    public void onClickSignup(ActionEvent actionEvent) {
+        if (usernameField.getText() == null ||
+                passwordField.getText() == null ||
+                emailField.getText() == null){
+            nullFieldsWarning.setVisible(true);
+            return;
+        }
+        if(userService.findByName(usernameField.getText())!= null){
+            usernameTakenWarning.setVisible(true);
+            return;
+        }
+        else if (!emailField.getText().matches(EMAILREGEX)){
+            invalidEmailWarning.setVisible(true);
+            return;
+        }
+        nullFieldsWarning.setVisible(false);
+        invalidEmailWarning.setVisible(false);
+        usernameTakenWarning.setVisible(false);
+        userService.addUser(new User(usernameField.getText(), Security.getHash(passwordField.getText()),emailField.getText()));
     }
 }

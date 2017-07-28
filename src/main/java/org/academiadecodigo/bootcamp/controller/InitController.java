@@ -5,14 +5,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import org.academiadecodigo.bootcamp.service.user.UserService;
+import org.academiadecodigo.bootcamp.utils.Constants;
+
+import static org.academiadecodigo.bootcamp.utils.Constants.LOGINVIEW;
+import static org.academiadecodigo.bootcamp.utils.Constants.REGISTERVIEW;
 
 /**
  * Created by codecadet on 27/07/2017.
  */
 public class InitController implements Controller{
 
-    private final String LOGIN_VIEW = "login";
-    private final String REGISTER_VIEW = "register";
 
     @FXML
     private Button loginBtn1;
@@ -27,10 +29,10 @@ public class InitController implements Controller{
     }
 
     public void onClickLogin(ActionEvent actionEvent) {
-        Navigation.getInstance().loadScreen(LOGIN_VIEW);
+        Navigation.getInstance().loadScreen(LOGINVIEW);
     }
 
     public void onClickSignup(ActionEvent actionEvent) {
-        Navigation.getInstance().loadScreen(REGISTER_VIEW);
+        Navigation.getInstance().loadScreen(REGISTERVIEW);
     }
 }
