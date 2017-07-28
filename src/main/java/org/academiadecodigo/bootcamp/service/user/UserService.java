@@ -19,4 +19,6 @@ public interface UserService extends Service {
     void initializeDB();
 
     String[] findPreferences(String name);
+
+    void addPreference(User user, String pref);
 }

@@ -223,6 +223,27 @@ public class UserServiceJdbc implements UserService {
         return null;
     }
 
+    @Override
+    public void addPreference(User user, String pref) {
+
+        try {
+
+            String query = "INSERT INTO preferences(userID, name) " +
+                    "VALUES (?, ?)";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setInt(1, user.getId());
+            statement.setString(2, pref);
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static String getCurrentUserName() {
         return currentUserName;
     }

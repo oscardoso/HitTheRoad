@@ -69,6 +69,11 @@ public class MockUserService implements UserService {
     }
 
     @Override
+    public void addPreference(User user, String pref) {
+
+    }
+
+    @Override
     public String getServiceName() {
         return UserService.class.getSimpleName();
     }

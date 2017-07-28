@@ -176,6 +176,11 @@ public class JdbcUserService implements UserService {
         return new String[0];
     }
 
+    @Override
+    public void addPreference(User user, String pref) {
+
+    }
+
 
     public void close() {
         try {

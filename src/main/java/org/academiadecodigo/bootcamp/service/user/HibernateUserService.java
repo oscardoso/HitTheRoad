@@ -91,4 +91,9 @@ public class HibernateUserService implements UserService {
         return new String[0];
     }
 
+    @Override
+    public void addPreference(User user, String pref) {
+
+    }
+
 }
