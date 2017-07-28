@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -8,12 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.RegisterController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="@../../../../../../../Desktop/assets/signup.jpg" />
+            <Image url="/images/signup.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="nameField" layoutX="275.0" layoutY="247.0" prefHeight="41.0" prefWidth="250.0">
@@ -27,10 +27,25 @@
             <Font name="Helvetica Bold" size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="signupButton" layoutX="325.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClicksignup" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00adee;" text="signup" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="signupButton" layoutX="325.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00adee;" text="signup" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>
       </Button>
+      <Label fx:id="nullFieldsWarning" contentDisplay="CENTER" layoutX="292.0" layoutY="480.0" text=" Error: Fields can't be empty" textFill="RED" translateY="50.0" visible="false">
+         <font>
+            <Font name="Helvetica" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameTakenWarning" contentDisplay="CENTER" layoutX="305.0" layoutY="479.0" text=" Error: Username already taken" textFill="RED" translateX="-40.0" translateY="50.0" visible="false">
+         <font>
+            <Font name="Helvetica" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEmailWarning" contentDisplay="CENTER" layoutX="354.0" layoutY="480.0" text=" Error: Invalid Email" textFill="RED" translateX="-40.0" translateY="50.0" visible="false">
+         <font>
+            <Font name="Helvetica" size="19.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

@@ -6,10 +6,7 @@ import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.service.jdbc.SuppliesType;
 import org.academiadecodigo.bootcamp.utils.Security;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by codecadet on 27/07/2017.
@@ -17,7 +14,7 @@ import java.sql.SQLException;
 public class UserServiceJdbc implements UserService {
 
     private Connection connection;
-
+    private static String currentUserName;
 
     public UserServiceJdbc(Connection connection) {
         this.connection = connection;
@@ -31,8 +28,12 @@ public class UserServiceJdbc implements UserService {
     @Override
     public boolean authenticate(String userName, String pass) {
 
+
+
         if (findByName(userName) == null ||
-                Security.getHash(findByName(userName).getPassword()) != Security.getHash(pass)){
+                !findByName(userName).getPassword().equals(Security.getHash(Security.getHash(pass)))){
+            System.out.println("db " + findByName(userName).getPassword());
+            System.out.println(Security.getHash( Security.getHash(pass)));
             return false;
         }
         return true;
@@ -79,7 +80,7 @@ public class UserServiceJdbc implements UserService {
 
                 statement.close();
 
-                return new User(usernameValue, emailValue, passwordValue);
+                return new User(usernameValue, passwordValue, emailValue);
             }
 
         } catch (SQLException e) {
@@ -177,5 +178,64 @@ public class UserServiceJdbc implements UserService {
             System.out.println("Failure to connect to database : " + e.getMessage());
         }
 
+    }
+
+    @Override
+    public String[] findPreferences(String name) {
+
+        try {
+
+            int id = findByName(name).getId();
+
+            String query = "SELECT name FROM preferences WHERE userID = ?";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            Object[] type;
+            Array prefs = resultSet.getArray("name");
+            type = (Object [])prefs.getArray();
+
+            String[] preferences = new String[type.length];
+
+            for(int i = 0; i < preferences.length; i++) {
+                preferences[i] = type[i].toString();
+            }
+
+            return preferences;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public void addPreference(User user, String pref) {
+
+        try {
+
+            String query = "INSERT INTO preferences(userID, name) " +
+                    "VALUES (?, ?)";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setInt(1, user.getId());
+            statement.setString(2, pref);
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static String getCurrentUserName() {
+        return currentUserName;
     }
 }

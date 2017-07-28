@@ -7,6 +7,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.academiadecodigo.bootcamp.model.User;
+import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
 
 import static org.academiadecodigo.bootcamp.utils.Constants.INITVIEW;
@@ -31,7 +32,7 @@ public class LogInController implements Controller {
     private Label credentialsDontMatch;
 
     @FXML
-    private TextField usernameField;
+    private TextField nameField;
 
     @FXML
     private PasswordField passwordField;
@@ -61,6 +62,10 @@ public class LogInController implements Controller {
         System.exit(1);
     }
 
+    public void initialize() {
+        userService = (UserService) ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
+    }
+
 
     @Override
     public void setUserService(UserService userService) {
@@ -73,17 +78,29 @@ public class LogInController implements Controller {
 
     public void onClickLogin(ActionEvent actionEvent) {
 
-        if (usernameField == null || passwordField == null) {
+        if (nameField.getText() == null || passwordField.getText() == null) {
+            System.out.println("dentro: " + nameField.getText());
+
             nullFieldsWarning.setVisible(true);
+            counter++;
+            if (counter == 3) {
+                counter = 0;
+                Navigation.getInstance().loadScreen(INITVIEW);
+            }
             return;
         }
 
-        if (userService.findByName(usernameField.getText()) == null) {
+        if (userService.findByName(nameField.getText()) == null) {
             userNotFoundWarning.setVisible(true);
+            counter++;
+            if (counter == 3) {
+                counter = 0;
+                Navigation.getInstance().loadScreen(INITVIEW);
+            }
             return;
         }
 
-        if (!userService.authenticate(usernameField.getText(), passwordField.getText())) {
+        if (!userService.authenticate(nameField.getText(), passwordField.getText())) {
             credentialsDontMatch.setVisible(true);
             System.out.println("Credentials don't match");
             counter++;

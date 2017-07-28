@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.controller.Navigation;
 import org.academiadecodigo.bootcamp.persistence.SuppliesCalculator;
-import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateTransactionManager;
 
 import org.academiadecodigo.bootcamp.persistence.jdbc.ConnectionManager;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;

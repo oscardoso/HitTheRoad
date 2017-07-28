@@ -8,25 +8,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.RegisterController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LetsGodController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="@../../../../../../../Desktop/assets/letsgo.jpg" />
+            <Image url="/images/letsgo.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="nameField" layoutX="123.0" layoutY="250.0" prefHeight="41.0" prefWidth="250.0">
+      <TextField fx:id="originField" layoutX="123.0" layoutY="250.0" prefHeight="41.0" prefWidth="250.0">
          <font>
             <Font name="Helvetica Bold" size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailField" layoutX="426.0" layoutY="250.0" onAction="#onKeyPressed" prefHeight="41.0" prefWidth="250.0">
+      <TextField fx:id="destinyField" layoutX="426.0" layoutY="250.0" onAction="#onKeyPressed" prefHeight="41.0" prefWidth="250.0">
          <font>
             <Font name="Helvetica Bold" size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="signupButton" layoutX="300.0" layoutY="515.0" mnemonicParsing="false" onAction="#onClicksignup" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00adee;" text="my choices" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="signupButton" layoutX="300.0" layoutY="515.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00adee;" text="my choices" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>
@@ -34,14 +33,14 @@
             <Insets left="40.0" />
          </padding>
       </Button>
-      <Button fx:id="signupButton1" layoutX="325.0" layoutY="313.0" mnemonicParsing="false" onAction="#onClicksignup" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff0000;" text="let's go" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="letsGoBtn" layoutX="325.0" layoutY="313.0" mnemonicParsing="false" onAction="#lestGoClick" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff0000;" text="let's go" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Helvetica Bold" size="24.0" />
          </font>
       </Button>
       <ImageView layoutX="309.0" layoutY="525.0">
          <image>
-            <Image url="@../../../../../../../Desktop/assets/espadas.png" />
+            <Image url="/images/espadas.png" />
          </image>
       </ImageView>
    </children>

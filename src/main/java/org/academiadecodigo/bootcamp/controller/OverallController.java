@@ -35,9 +35,9 @@ public class OverallController implements Controller {
 
         overall.setText("");
         overall.setText("Origin: " + TravelDistance.getOrigemFinal() +
-                " | Destinaction: " + TravelDistance.getDestinoFinal() +
-                " | Distance: " + TravelDistance.getKilometres() +
-                " | Days Walking: " + TravelDistance.getNumberOfDays());
+                " | Destination: " + TravelDistance.getDestinoFinal() +
+                " | Distance: " + TravelDistance.getKilometres() + " km" +
+                " | Days Walking: " + TravelDistance.getNumberOfDays() + "      (30km/day avg)");
 
     }
 

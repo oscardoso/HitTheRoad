@@ -10,8 +10,16 @@ import java.net.URL;
 
 public class TravelDistance {
 
-    public void distance(String origem, String destino) {
+    private static String originDestiny;
+    private static String origemFinal;
+    private static String destinoFinal;
+    private static int numberOfDays;
+    private static int kilometres;
+
+    public static void distance (String origem, String destino) {
         try {
+
+            originDestiny = origem + destino;
 
             String line, outputString = "";
 
@@ -30,17 +38,19 @@ public class TravelDistance {
 
             String endResult[] = result[1].split(" ");
 
-            System.out.println(endResult[0]);
-
             Double km = Double.parseDouble(endResult[0]);
-
+            kilometres = km.intValue();
             km = Math.ceil(km / 30);
 
             int numOfDays = km.intValue();
 
             SuppliesCalculator.setNumberOfDays(numOfDays);
 
-            System.out.println("numero de dias: " + numOfDays);
+            origemFinal = origem;
+            destinoFinal = destino;
+
+            numberOfDays = numOfDays;
+
 
         } catch (IOException err) {
             System.out.println(err);
@@ -52,6 +62,27 @@ public class TravelDistance {
 
         System.out.println("___________________________________");
 
+    }
+
+    public static String getOriginDestiny() {
+        return originDestiny;
+    }
+
+
+    public static String getOrigemFinal() {
+        return origemFinal;
+    }
+
+    public static String getDestinoFinal() {
+        return destinoFinal;
+    }
+
+    public static int getNumberOfDays() {
+        return numberOfDays;
+    }
+
+    public static int getKilometres() {
+        return kilometres;
     }
 
 }

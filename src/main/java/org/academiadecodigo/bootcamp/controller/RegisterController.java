@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.model.User;
+import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
 import org.academiadecodigo.bootcamp.utils.Security;
 
@@ -36,9 +37,6 @@ public class RegisterController implements Controller{
     private TextField emailField;
 
     @FXML
-    private TextField usernameField;
-
-    @FXML
     private TextField nameField;
 
     @FXML
@@ -62,6 +60,10 @@ public class RegisterController implements Controller{
 
     }
 
+    public void initialize() {
+        userService = (UserService) ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
+    }
+
     @Override
     public void setUserService(UserService userService) {
 
@@ -72,13 +74,13 @@ public class RegisterController implements Controller{
     }
 
     public void onClickSignup(ActionEvent actionEvent) {
-        if (usernameField.getText() == null ||
+        if (nameField.getText() == null ||
                 passwordField.getText() == null ||
                 emailField.getText() == null){
             nullFieldsWarning.setVisible(true);
             return;
         }
-        if(userService.findByName(usernameField.getText())!= null){
+        if(userService.findByName(nameField.getText())!= null){
             usernameTakenWarning.setVisible(true);
             return;
         }
@@ -89,6 +91,6 @@ public class RegisterController implements Controller{
         nullFieldsWarning.setVisible(false);
         invalidEmailWarning.setVisible(false);
         usernameTakenWarning.setVisible(false);
-        userService.addUser(new User(usernameField.getText(), Security.getHash(passwordField.getText()),emailField.getText()));
+        userService.addUser(new User(nameField.getText(), Security.getHash(passwordField.getText()),emailField.getText()));
     }
 }
