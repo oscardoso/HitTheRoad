@@ -1,14 +1,13 @@
 package org.academiadecodigo.bootcamp.service.user;
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
 import org.academiadecodigo.bootcamp.model.User;
 import org.academiadecodigo.bootcamp.service.jdbc.SuppliesType;
-import org.academiadecodigo.bootcamp.utils.Security;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by codecadet on 27/07/2017.
@@ -33,7 +32,7 @@ public class UserServiceJdbc implements UserService {
 
             String query = "SELECT username, password FROM user WHERE user.username = ? AND user.password = ?";
 
-            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+            PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, userName);
             statement.setString(2, pass);
@@ -60,8 +59,8 @@ public class UserServiceJdbc implements UserService {
         Statement statement = null;
 
         try {
-            statement = (Statement) connection.createStatement();
-            String update = "INSERT INTO users (user_name, user_password, user_email) " +
+            statement = connection.createStatement();
+            String update = "INSERT INTO users (username, password, email) " +
                     "VALUES('" + user.getUsername() + "','" + user.getPassword() + "','" + user.getEmail() + "');";
             statement.executeUpdate(update);
 

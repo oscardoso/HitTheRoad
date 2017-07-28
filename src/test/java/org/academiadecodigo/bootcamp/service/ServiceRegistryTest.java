@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp.service;
 
-import org.academiadecodigo.bootcamp.service.jdbc.JdbcUserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

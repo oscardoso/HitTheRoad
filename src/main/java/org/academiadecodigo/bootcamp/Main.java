@@ -1,14 +1,14 @@
 package org.academiadecodigo.bootcamp;
 
+import com.mysql.jdbc.Connection;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.controller.Navigation;
-import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateTransactionManager;
 
 import org.academiadecodigo.bootcamp.persistence.jdbc.ConnectionManager;
-import org.academiadecodigo.bootcamp.service.jdbc.JdbcUserService;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
+import org.academiadecodigo.bootcamp.service.user.UserServiceJdbc;
 
 public class Main extends Application {
 
@@ -23,7 +23,7 @@ public class Main extends Application {
     @Override
     public void init() {
         connectionManager = new ConnectionManager();
-        UserService jservice = new JdbcUserService(connectionManager);
+        UserService jservice = new UserServiceJdbc(connectionManager.getConnection());
         jservice.initializeDB();
         //UserService hservice = new HibernateUserService();
         /*UserServiceImpl service = new UserServiceImpl();
