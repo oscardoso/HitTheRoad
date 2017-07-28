@@ -4,16 +4,25 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.InitController">
    <children>
-      <Button fx:id="loginBtn1" layoutX="398.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login" />
-      <Button fx:id="signUpBtn" layoutX="393.0" layoutY="336.0" mnemonicParsing="false" onAction="#onSignUpClick" text="SignUp" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="349.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="/logo.png" />
+            <Image url="@../../../../../../../Desktop/assets/intro.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="loginButton" layoutX="325.0" layoutY="274.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ff0000;" text="login" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Helvetica Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="signupButton" layoutX="325.0" layoutY="344.0" mnemonicParsing="false" onAction="#onClickSignup" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00adee;" text="signup" textAlignment="CENTER" textFill="#fffefe">
+         <font>
+            <Font name="Helvetica Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
