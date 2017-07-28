@@ -12,3 +12,9 @@ CREATE TABLE supplies (
   name CHAR(50) UNIQUE,
   PRIMARY KEY (id)
 );
+CREATE TABLE preferences (
+  id INTEGER AUTO_INCREMENT,
+  userID INTEGER,
+  name CHAR(50) UNIQUE,
+  PRIMARY KEY (id)
+);
