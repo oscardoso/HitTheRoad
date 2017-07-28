@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-=======
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,11 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<<<<<<< HEAD
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.RegisterController">
-=======
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
    <children>
       <GridPane layoutX="224.0" layoutY="242.0" prefHeight="150.0" prefWidth="392.0">
         <columnConstraints>
@@ -52,7 +43,6 @@
          </children>
       </GridPane>
       <Button fx:id="signUpBtn" layoutX="391.0" layoutY="392.0" mnemonicParsing="false" onAction="#onClick" text="SignUp" />
-<<<<<<< HEAD
       <MenuBar>
          <menus>
             <Menu mnemonicParsing="false" text="File">
@@ -77,7 +67,5 @@
          </padding>
       </MenuBar>
       <Label fx:id="sysMsg" layoutX="368.0" layoutY="445.0" text="System Message" visible="false" />
-=======
->>>>>>> 91e9b4d3229b4a1f90d441fe2cf8528e55585aa2
    </children>
 </Pane>

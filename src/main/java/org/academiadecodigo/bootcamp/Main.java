@@ -9,6 +9,7 @@ import org.academiadecodigo.bootcamp.persistence.jdbc.ConnectionManager;
 import org.academiadecodigo.bootcamp.service.jdbc.JdbcUserService;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
+import org.academiadecodigo.bootcamp.service.user.UserServiceJdbc;
 
 public class Main extends Application {
 
@@ -23,16 +24,9 @@ public class Main extends Application {
     @Override
     public void init() {
         connectionManager = new ConnectionManager();
-        UserService jservice = new JdbcUserService(connectionManager);
+        UserService jservice = new UserServiceJdbc(connectionManager.getConnection());
         jservice.initializeDB();
-        //UserService hservice = new HibernateUserService();
-        /*UserServiceImpl service = new UserServiceImpl();
-        service.setTransactionManager(new HibernateTransactionManager());
-      //  service.setUserDao(new HibernateUserDao());
-       // service.setRoleDao(new HibernateRoleDao());
-        ServiceRegistry.getInstance().registerService(service);
-        service.setUserDao(new HibernateUserDao());
-        service.setRoleDao(new JdbcUserService());*/
+
         ServiceRegistry.getInstance().registerService(jservice);
 
     }
