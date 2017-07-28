@@ -16,7 +16,8 @@ public enum SuppliesType {
     CANIVETEBEARGRYLLS("Canivete Bear Grylls"),
     CATANA("Catana"),
     TOALHETES("Toalhetes"),
-    DESODORIZANTE("Desodorizante");
+    DESODORIZANTE("Desodorizante"),
+    CERVEJA("Refresco de Cevada");
 
     private String description;
 

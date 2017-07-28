@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.model;
 
+import javax.management.relation.Role;
 import java.util.Set;
 
 /**

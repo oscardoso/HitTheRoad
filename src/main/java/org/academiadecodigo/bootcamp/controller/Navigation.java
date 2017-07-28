@@ -17,9 +17,9 @@ public final class Navigation {
 
     // ... singleton stuff...
 
-    private final int MIN_WIDTH = 1024; // window width
-    private final int MIN_HEIGHT = 768; // window height
-    private final String VIEW_PATH = "/view";
+    private final int MIN_WIDTH = 800; // window width
+    private final int MIN_HEIGHT = 600; // window height
+    private final String VIEW_PATH = "/views";
 
     private LinkedList<Scene> scenes = new LinkedList<Scene>(); // Navigation History
     private Map<String, Controller> controllers = new HashMap<>(); //Container of controllers

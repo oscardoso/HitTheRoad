@@ -1,10 +1,8 @@
 package org.academiadecodigo.bootcamp.controller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import org.academiadecodigo.bootcamp.persistence.FileManager;
+import javafx.scene.control.Label;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.service.user.UserService;
 
@@ -17,7 +15,10 @@ public class SuppliesDisplay implements Controller{
     private Button SuppliesNext;
 
     @FXML
-    private TextField SuppliesDisplayText;
+    private Label suppliesLeftLabel;
+
+    @FXML
+    private Label suppliesRightLabel;
     private UserService userService;
 
     public void initialize() {

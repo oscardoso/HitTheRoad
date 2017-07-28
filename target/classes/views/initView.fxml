@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.InitController">
    <children>
-      <Button fx:id="loginBtn1" layoutX="398.0" layoutY="300.0" mnemonicParsing="false" onAction="#onClick" text="Login" />
-      <Button fx:id="signUpBtn" layoutX="393.0" layoutY="336.0" mnemonicParsing="false" onAction="#onClick" text="SignUp" />
+      <Button fx:id="loginBtn1" layoutX="398.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login" />
+      <Button fx:id="signUpBtn" layoutX="393.0" layoutY="336.0" mnemonicParsing="false" onAction="#onSignUpClick" text="SignUp" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="349.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Desktop/download.jpg" />
+            <Image url="/logo.png" />
          </image>
       </ImageView>
    </children>
