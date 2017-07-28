@@ -5,19 +5,19 @@ package org.academiadecodigo.bootcamp.service.jdbc;
  */
 public enum SuppliesType {
     LATADEATUM("Lata de Atum"),
-    LATADESALSICHAS("Lata de Salsichas"),
-    GARRAFAAGUA("Garrafa de Água"),
     FRUTADAEPOCA("Fruta da Época"),
+    GARRAFAAGUA("Garrafa de Água"),
+    CERVEJA("Refresco de Cevada"),
+    LATADESALSICHAS("Lata de Salsichas"),
     LATADEFEIJAO("Lata de Feijões"),
-    SACOCAMA("Saco de Cama"),
-    PAPELHIGIENICO("Papel Higiénico"),
-    PRESERVATIVOS("Preservativos"),
     DUMDUM("Repelente de Insectos"),
     CANIVETEBEARGRYLLS("Canivete Bear Grylls"),
-    CATANA("Catana"),
     TOALHETES("Toalhetes"),
     DESODORIZANTE("Desodorizante"),
-    CERVEJA("Refresco de Cevada");
+    PAPELHIGIENICO("Papel Higiénico"),
+    PRESERVATIVOS("Preservativos"),
+    SACOCAMA("Saco de Cama"),
+    CATANA("Catana");
 
     private String description;
 

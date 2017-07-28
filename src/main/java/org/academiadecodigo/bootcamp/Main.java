@@ -4,6 +4,11 @@ import com.mysql.jdbc.Connection;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.controller.Navigation;
+<<<<<<< HEAD
+=======
+import org.academiadecodigo.bootcamp.persistence.SuppliesCalculator;
+import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateTransactionManager;
+>>>>>>> 3ff5ede0152069537205bce13e7afc2913ae0898
 
 import org.academiadecodigo.bootcamp.persistence.jdbc.ConnectionManager;
 import org.academiadecodigo.bootcamp.service.ServiceRegistry;
