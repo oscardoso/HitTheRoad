@@ -1,5 +1,10 @@
 package org.academiadecodigo.bootcamp.service.user;
 
+<<<<<<< HEAD
+=======
+import java.sql.Array;
+import java.sql.Connection;
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
 
 import com.mysql.jdbc.Statement;
 import org.academiadecodigo.bootcamp.model.User;
@@ -18,6 +23,8 @@ public class UserServiceJdbc implements UserService {
 
     private Connection connection;
 
+    private static String currentUserName;
+
 
     public UserServiceJdbc(Connection connection) {
         this.connection = connection;
@@ -30,6 +37,28 @@ public class UserServiceJdbc implements UserService {
 
     @Override
     public boolean authenticate(String userName, String pass) {
+<<<<<<< HEAD
+=======
+        try {
+
+            currentUserName = userName;
+
+            String query = "SELECT username, password FROM user WHERE user.username = ? AND user.password = ?";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setString(1, userName);
+            statement.setString(2, pass);
+
+            System.out.println(userName + " and " + pass);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                return true;
+            }
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
 
         if (findByName(userName) == null ||
                 Security.getHash(findByName(userName).getPassword()) != Security.getHash(pass)){
@@ -75,7 +104,14 @@ public class UserServiceJdbc implements UserService {
                 String usernameValue = resultSet.getString("username");
                 String passwordValue = resultSet.getString("password");
                 String emailValue = resultSet.getString("email");
+                int id = resultSet.getInt("id");
 
+<<<<<<< HEAD
+=======
+                user = new User(id, usernameValue, passwordValue, emailValue);
+                return user;
+            }
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
 
                 statement.close();
 
@@ -178,4 +214,64 @@ public class UserServiceJdbc implements UserService {
         }
 
     }
+
+    @Override
+    public String[] findPreferences(String name) {
+
+        try {
+
+            int id = findByName(name).getId();
+
+            String query = "SELECT name FROM preferences WHERE userID = ?";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            Object[] type;
+            Array prefs = resultSet.getArray("name");
+            type = (Object [])prefs.getArray();
+
+            String[] preferences = new String[type.length];
+
+            for(int i = 0; i < preferences.length; i++) {
+                preferences[i] = type[i].toString();
+            }
+
+            return preferences;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public void addPreference(User user, String pref) {
+
+        try {
+
+            String query = "INSERT INTO preferences(userID, name) " +
+                    "VALUES (?, ?)";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setInt(1, user.getId());
+            statement.setString(2, pref);
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static String getCurrentUserName() {
+        return currentUserName;
+    }
+
 }

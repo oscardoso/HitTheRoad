@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<<<<<<< HEAD
 <?import javafx.scene.control.Label?>
+=======
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<<<<<<< HEAD
+=======
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LogInController">
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LoginController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
+<<<<<<< HEAD
             <Image url="/images/login.jpg" />
+=======
+            <Image url="@../../../../../../../Desktop/assets/login.jpg" />
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
          </image>
       </ImageView>
       <TextField fx:id="nameField" layoutX="275.0" layoutY="247.0" prefHeight="41.0" prefWidth="250.0">
@@ -27,6 +38,7 @@
             <Font name="Helvetica Bold" size="24.0" />
          </font>
       </Button>
+<<<<<<< HEAD
       <Label fx:id="userNotFoundWarning" layoutX="304.0" layoutY="470.0" text=" Error: User Not Found" textFill="RED" visible="false">
          <font>
             <Font name="Helvetica" size="19.0" />
@@ -42,5 +54,7 @@
             <Font name="Helvetica" size="19.0" />
          </font>
       </Label>
+=======
+>>>>>>> d020425c90bb1a35468f7f266bc7898a1f18cd87
    </children>
 </Pane>

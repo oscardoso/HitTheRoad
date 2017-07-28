@@ -4,6 +4,7 @@ import com.mysql.jdbc.Connection;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.controller.Navigation;
+import org.academiadecodigo.bootcamp.persistence.FileManager;
 import org.academiadecodigo.bootcamp.persistence.SuppliesCalculator;
 import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateTransactionManager;
 
@@ -39,6 +40,8 @@ public class Main extends Application {
         navigation.setStage(primaryStage);
         // load the first scene
         navigation.loadScreen("initView");
+
+        FileManager.save("ruben", "poi");
 
     }
 
