@@ -10,8 +10,12 @@ import java.net.URL;
 
 public class TravelDistance {
 
+    private static String originDestiny;
+
     public void distance(String origem, String destino) {
         try {
+
+            originDestiny = origem + destino;
 
             String line, outputString = "";
 
@@ -52,6 +56,10 @@ public class TravelDistance {
 
         System.out.println("___________________________________");
 
+    }
+
+    public static String getOriginDestiny() {
+        return originDestiny;
     }
 
 }

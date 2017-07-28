@@ -79,6 +79,11 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public String[] findPreferences(String name) {
+        return new String[0];
+    }
+
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }

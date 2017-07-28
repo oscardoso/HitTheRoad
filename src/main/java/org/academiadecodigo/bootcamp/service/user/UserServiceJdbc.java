@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.service.user;
 
+import java.sql.Array;
 import java.sql.Connection;
 
 import com.mysql.jdbc.PreparedStatement;
@@ -18,6 +19,8 @@ public class UserServiceJdbc implements UserService {
 
     private Connection connection;
 
+    private static String currentUserName;
+
 
     public UserServiceJdbc(Connection connection) {
         this.connection = connection;
@@ -31,6 +34,8 @@ public class UserServiceJdbc implements UserService {
     @Override
     public boolean authenticate(String userName, String pass) {
         try {
+
+            currentUserName = userName;
 
             String query = "SELECT username, password FROM user WHERE user.username = ? AND user.password = ?";
 
@@ -93,8 +98,9 @@ public class UserServiceJdbc implements UserService {
                 String usernameValue = resultSet.getString("username");
                 String passwordValue = resultSet.getString("password");
                 String emailValue = resultSet.getString("email");
+                int id = resultSet.getInt("id");
 
-                user = new User(usernameValue, passwordValue, emailValue);
+                user = new User(id, usernameValue, passwordValue, emailValue);
                 return user;
             }
 
@@ -182,4 +188,43 @@ public class UserServiceJdbc implements UserService {
         }
 
     }
+
+    @Override
+    public String[] findPreferences(String name) {
+
+        try {
+
+            int id = findByName(name).getId();
+
+            String query = "SELECT name FROM preferences WHERE userID = ?";
+
+            java.sql.PreparedStatement statement = connection.prepareStatement(query);
+
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            Object[] type;
+            Array prefs = resultSet.getArray("name");
+            type = (Object [])prefs.getArray();
+
+            String[] preferences = new String[type.length];
+
+            for(int i = 0; i < preferences.length; i++) {
+                preferences[i] = type[i].toString();
+            }
+
+            return preferences;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static String getCurrentUserName() {
+        return currentUserName;
+    }
+
 }

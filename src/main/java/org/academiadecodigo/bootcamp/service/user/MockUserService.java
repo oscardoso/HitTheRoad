@@ -64,6 +64,11 @@ public class MockUserService implements UserService {
     }
 
     @Override
+    public String[] findPreferences(String name) {
+        return new String[0];
+    }
+
+    @Override
     public String getServiceName() {
         return UserService.class.getSimpleName();
     }

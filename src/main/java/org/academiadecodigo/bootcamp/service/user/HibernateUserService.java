@@ -86,4 +86,9 @@ public class HibernateUserService implements UserService {
 
     }
 
+    @Override
+    public String[] findPreferences(String name) {
+        return new String[0];
+    }
+
 }

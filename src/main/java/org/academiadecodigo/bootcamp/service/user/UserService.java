@@ -17,4 +17,6 @@ public interface UserService extends Service {
     int count();
 
     void initializeDB();
+
+    String[] findPreferences(String name);
 }
