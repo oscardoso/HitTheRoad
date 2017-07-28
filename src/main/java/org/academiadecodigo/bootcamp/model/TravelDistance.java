@@ -17,6 +17,7 @@ public class TravelDistance {
     private static int kilometres;
 
     public static void distance (String origem, String destino) {
+
         try {
 
             originDestiny = origem + destino;
@@ -51,6 +52,7 @@ public class TravelDistance {
 
             numberOfDays = numOfDays;
 
+            SuppliesCalculator.setNumberOfDays(numberOfDays);
 
         } catch (IOException err) {
             System.out.println(err);

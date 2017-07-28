@@ -37,10 +37,25 @@ public class LetsGodController implements Controller{
     @FXML
     void lestGoClick(ActionEvent event) {
 
-        TravelDistance.distance(originField.getText(), destinyField.getText());
+        String origem = "";
+        String destino = "";
 
-        if(TravelDistance.getOrigemFinal() == null) {
+        if(originField.getText().split(" ").length > 1) {
+            origem += originField.getText().replace(" ", "");
+        } else {
+            origem = originField.getText();
+        }
+        if(destinyField.getText().split(" ").length > 1) {
+            destino += destinyField.getText().replace(" ", "");
+        } else {
+            destino = destinyField.getText();
+        }
+
+        TravelDistance.distance(origem, destino);
+
+        if(TravelDistance.getOrigemFinal() == null || TravelDistance.getDestinoFinal() == null) {
             routeNotFoundWarning.setVisible(true);
+            return;
         }
 
         Navigation.getInstance().loadScreen(OVERALLVIEW);
